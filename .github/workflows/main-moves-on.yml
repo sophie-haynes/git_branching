@@ -1,0 +1,26 @@
+# LECTURER TOOL. On GitHub: Actions tab -> "Main moves on" -> "Run workflow".
+# It makes a commit appear on main so students have to pull it into their
+# branch. Run it a second time while they're editing CHANGELOG.md and you
+# get a conflict on demand.
+name: Main moves on
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  nudge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Add a changelog line and push to main
+        run: |
+          echo "- Housekeeping commit made by the bot on $(date -u +%Y-%m-%d)" >> CHANGELOG.md
+          git config user.name "bootcamp-bot"
+          git config user.email "bootcamp-bot@users.noreply.github.com"
+          git commit -am "Bot: housekeeping on main"
+          git push origin main
