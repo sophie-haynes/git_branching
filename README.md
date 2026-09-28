@@ -68,7 +68,7 @@ git reset --hard origin/main
 1. Switch to the finished feature:
 
    ```
-   git switch feature-a
+   git checkout feature-a
    ```
 
    (git notices `origin/feature-a` exists and makes you a local copy.)
@@ -85,7 +85,7 @@ git reset --hard origin/main
 4. Back in VS Code, bring the merge down to your machine:
 
    ```
-   git switch dev
+   git checkout dev
    git pull
    node index.js
    ```
@@ -95,7 +95,7 @@ git reset --hard origin/main
 `feature-b` changed the **same line** of `index.js` as `feature-a`. Git can't
 guess which one you meant, so it will stop and ask you.
 
-1. Switch to it: `git switch feature-b`
+1. Switch to it: `git checkout feature-b`
 2. Before opening a PR, a good habit is to pull `dev` into your branch so
    the PR is up to date:
 
@@ -144,7 +144,7 @@ Real projects don't wait. Your lecturer will press a button that makes a new
 commit appear on `main`. Your job is to notice, and bring it into `dev`:
 
 ```
-git switch dev
+git checkout dev
 git fetch                 # ask GitHub what's new (changes nothing locally)
 git log --oneline dev..origin/main    # commits on main that dev doesn't have
 git merge origin/main
@@ -158,8 +158,8 @@ lets you look before you leap.
 
 Now do the whole loop yourself, from scratch:
 
-1. `git switch dev` then `git pull` — always start from up-to-date `dev`.
-2. `git switch -c feature-yourname` — make and switch to a new branch.
+1. `git checkout dev` then `git pull` — always start from up-to-date `dev`.
+2. `git checkout -b feature-yourname` — make and switch to a new branch.
 3. Add yourself to the `team` array in `index.js`. Add a line to
    `CHANGELOG.md`.
 4. Commit, then push. The first push needs to tell GitHub about the new
@@ -170,7 +170,7 @@ Now do the whole loop yourself, from scratch:
    ```
 
 5. Open a PR into `dev`. Get a teammate to review it. Merge.
-6. Everyone: `git switch dev && git pull`. Run `node index.js`. Is everyone
+6. Everyone: `git checkout dev && git pull`. Run `node index.js`. Is everyone
    on the list?
 
 If two of you added yourselves on the same line, someone gets a conflict.
@@ -190,8 +190,8 @@ nobody pushed to it directly.
 | I want to…                              | Command                              |
 |-----------------------------------------|--------------------------------------|
 | See my branches                         | `git branch` (`-a` includes remote)  |
-| Switch branch                           | `git switch name`                    |
-| Make a new branch and switch to it      | `git switch -c name`                 |
+| Switch branch                           | `git checkout name`                    |
+| Make a new branch and switch to it      | `git checkout -b name`                 |
 | See what's new on GitHub (no changes)   | `git fetch`                          |
 | Bring another branch's commits into mine| `git merge other-branch`             |
 | Fetch + merge in one                    | `git pull`                           |
