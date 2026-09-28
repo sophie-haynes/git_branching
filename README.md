@@ -44,10 +44,8 @@ Work through the tasks in order. Tick each one off as you go.
 
 ## Task 2 — Prove that main is protected
 
-Try to break the rule:
-
+Try to break the rule. First, add a hello world console log to `index.js` then:
 ```
-echo "// I was here" >> index.js
 git add index.js
 git commit -m "Editing main directly"
 git push
