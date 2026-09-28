@@ -1,7 +1,7 @@
 // Bootcamp team project
 // Run me with:  node index.js
 
-const GREETING = "Hello";
+const GREETING = "Hi there";
 
 function greet(name) {
   return `${GREETING}, ${name}!`;
